@@ -1,0 +1,19 @@
+{{page-title "Document"}}
+
+{{#each @model as |document|}}
+  {{#let document.bookmark as |bookmark|}}
+    <h1>{{document.name}}</h1>
+
+    <p>
+      {{#if bookmark}}
+        I have a bookmark.
+      {{else}}
+        I do not have a bookmark.
+      {{/if}}
+
+      <button type="button" {{on "click" (fn this.toggleBookmark document)}}>
+        {{if bookmark "Delete it" "Add bookmark"}}
+      </button>
+    </p>
+  {{/let}}
+{{/each}}
